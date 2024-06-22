@@ -21,7 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Flight Search"
 include(":app")
-include(":core:common")
 include(":core:database")
 include(":core:network")
 include(":feature:mainscreen")
@@ -33,3 +32,4 @@ include(":feature:subscriptions")
 include(":feature:profile")
 include(":core:domain")
 include(":core:data")
+include(":core:common")

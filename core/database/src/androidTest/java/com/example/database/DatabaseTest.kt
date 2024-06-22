@@ -14,6 +14,7 @@ import com.example.database.entities.ticketEntities.ArrivalEntity
 import com.example.database.entities.ticketEntities.DepartureEntity
 import com.example.database.entities.ticketEntities.HandLuggageEntity
 import com.example.database.entities.ticketEntities.LuggageEntity
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
@@ -108,14 +109,10 @@ class DatabaseTest : KoinTest {
         ticketDao.insert(ticket)
 
 
-        val allOffers = offerDao.getAll()
-        assert(allOffers.isNotEmpty())
+        assert(offerDao.getAll().first().isNotEmpty())
+        assert(ticketDao.getAll().first().isNotEmpty())
+        assert(ticketsOfferDao.getAll().first().isNotEmpty())
 
-        val allTicketsOffers = ticketsOfferDao.getAll()
-        assert(allTicketsOffers.isNotEmpty())
-
-        val allTickets = ticketDao.getAll()
-        assert(allTickets.isNotEmpty())
     }
 }
 
@@ -124,7 +121,7 @@ private val testDatabaseModule = module {
         Room.inMemoryDatabaseBuilder(
             ApplicationProvider.getApplicationContext(),
             AppDatabase::class.java
-        ).build()
+        ).allowMainThreadQueries().build()
     }
     single { get<AppDatabase>().ticketDao() }
     single { get<AppDatabase>().offerDao() }
