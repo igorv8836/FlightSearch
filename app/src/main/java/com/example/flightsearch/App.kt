@@ -1,6 +1,7 @@
 package com.example.flightsearch
 
 import android.app.Application
+import com.example.data.dataModule
 import com.example.database.databaseModule
 import com.example.network.networkModule
 import org.koin.android.ext.koin.androidContext
@@ -12,7 +13,7 @@ class App: Application() {
 
         startKoin {
             androidContext(this@App)
-            modules(networkModule, databaseModule)
+            modules(networkModule, databaseModule, dataModule)
         }
 
     }

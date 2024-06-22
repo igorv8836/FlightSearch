@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.example.database.entities.TicketsOfferEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface TicketsOfferDao {
@@ -19,10 +20,10 @@ interface TicketsOfferDao {
     suspend fun update(ticketsOfferEntity: TicketsOfferEntity)
 
     @Query("SELECT * FROM tickets_offer")
-    suspend fun getAll(): List<TicketsOfferEntity>
+    fun getAll(): Flow<List<TicketsOfferEntity>>
 
     @Query("SELECT * FROM tickets_offer WHERE id = :id")
-    suspend fun getById(id: Int): TicketsOfferEntity
+    fun getById(id: Int): Flow<TicketsOfferEntity>
 
     @Query("DELETE FROM tickets_offer")
     suspend fun deleteAll()
