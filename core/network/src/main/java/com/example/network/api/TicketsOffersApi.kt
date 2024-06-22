@@ -1,7 +1,5 @@
 package com.example.network.api
 
-import com.example.network.offers_models.OffersResponse
-import com.example.network.retrofit
 import com.example.network.tickets_offers_models.TicketsOffersResponse
 import retrofit2.Retrofit
 import retrofit2.http.GET

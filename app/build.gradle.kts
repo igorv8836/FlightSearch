@@ -40,6 +40,7 @@ android {
 
 dependencies {
     implementation(project(":core:network"))
+    implementation(project(":core:database"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -51,8 +52,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation("io.insert-koin:koin-core:3.5.6")
-    implementation("io.insert-koin:koin-android:3.5.6")
-    implementation("io.insert-koin:koin-android-compat:3.5.6")
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
+    implementation(libs.koin.android.compat)
 
 }

@@ -1,5 +1,5 @@
 package com.example.network
 
-object NetworkConstants {
+internal object NetworkConstants {
     const val BASE_URL = "https://run.mocky.io"
 }
