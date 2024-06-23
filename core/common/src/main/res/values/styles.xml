@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base Application Theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    </style>
+
+    <!-- Title 1 -->
+    <style name="Title1">
+        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <!-- Title 2 -->
+    <style name="Title2">
+        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- Title 3 -->
+    <style name="Title3">
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Title 4 -->
+    <style name="Title4">
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Text 1 -->
+    <style name="Text1">
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Text 2 -->
+    <style name="Text2">
+        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Button Text 1 -->
+    <style name="ButtonText1">
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Tab Text -->
+    <style name="TabText">
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+</resources>
