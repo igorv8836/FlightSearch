@@ -11,9 +11,12 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.emitAll
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.last
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.single
 
 internal class OfferRepositoryImpl(
     private val networkService: OffersApi,
@@ -27,6 +30,7 @@ internal class OfferRepositoryImpl(
         val databaseFlow = database.getAll().map { entities -> entities.map { it.toOffer() } }
 
         return flow {
+            emit(databaseFlow.first())
             val offers = networkService.getOffers()
             database.deleteAll()
             database.insert(offers.offers.map { it.toDbEntity() })

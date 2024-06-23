@@ -10,6 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.emitAll
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
@@ -26,10 +27,11 @@ internal class TicketsOfferRepositoryImpl(
     override fun getTicketsOffers(): Flow<List<TicketsOffer>> {
         val databaseFlow = database.getAll().map { it.map { it1 -> it1.toTicketsOffer() } }
         return flow {
+            emit(databaseFlow.first())
             val res = networkService.getTicketsOffers()
             database.deleteAll()
             database.insert(res.ticketsOffers.map { it.toDbEntity() })
-            emitAll(database.getAll().map { it.map { it1 -> it1.toTicketsOffer() } })
+            emitAll(databaseFlow)
         }.flowOn(Dispatchers.IO).catch { emitAll(databaseFlow) }
     }
 }
