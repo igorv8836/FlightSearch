@@ -12,10 +12,10 @@
     <color name="white">#FFFFFF</color>
 
     <!-- Special Colors -->
-    <color name="blue">#4C95FE</color>
-    <color name="dark_blue">#00427d</color>
-    <color name="green">#4CB24E</color>
-    <color name="dark_green">#015905</color>
-    <color name="red">#FF0000</color>
+    <color name="blue">#2269BC</color>
+    <color name="dark_blue">#00427D</color>
+    <color name="green">#3A633B</color>
+    <color name="dark_green">#1E341F</color>
+    <color name="red">#FF5E5E</color>
     <color name="orange">#F36E36</color>
 </resources>

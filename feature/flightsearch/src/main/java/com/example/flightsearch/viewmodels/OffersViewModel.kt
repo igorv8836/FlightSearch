@@ -13,8 +13,7 @@ class OffersViewModel(
 ) : ViewModel() {
 
     private val _offers: MutableStateFlow<List<Offer>?> = MutableStateFlow(null)
-    val offers: StateFlow<List<Offer>?>
-        get() = _offers
+    val offers: StateFlow<List<Offer>?> = _offers
 
 
     fun getOffers() {

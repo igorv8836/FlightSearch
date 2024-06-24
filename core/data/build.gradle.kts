@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.database"
+    namespace = "com.example.data"
     compileSdk = 34
 
     defaultConfig {

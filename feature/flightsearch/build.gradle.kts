@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -53,6 +54,7 @@ dependencies {
 
     implementation(libs.koin.core)
     implementation(libs.koin.android)
+    implementation(libs.koin.android.compat)
     implementation(libs.koin.compose)
 
     implementation(libs.adapterdelegates4.kotlin.dsl)
@@ -65,16 +67,16 @@ dependencies {
     androidTestImplementation(composeBom)
 
     implementation(libs.androidx.material3)
-    implementation("androidx.compose.foundation:foundation")
-    implementation("androidx.compose.ui:ui")
+    implementation(libs.androidx.foundation)
+    implementation(libs.androidx.ui)
 
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    debugImplementation("androidx.compose.ui:ui-tooling")
+    implementation(libs.androidx.ui.tooling.preview)
+    debugImplementation(libs.androidx.ui.tooling)
 
-    implementation("androidx.compose.material:material-icons-core")
-    implementation("androidx.compose.material:material-icons-extended")
+    implementation(libs.androidx.material.icons.core)
+    implementation(libs.androidx.material.icons.extended)
     implementation("androidx.compose.material3:material3-window-size-class")
 
-    implementation("androidx.activity:activity-compose:1.9.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 }

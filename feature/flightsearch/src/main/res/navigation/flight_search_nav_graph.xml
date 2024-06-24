@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/flight_search_nav_graph"
-    app:startDestination="@id/searchFragment">
+    app:startDestination="@id/offersFragment">
 
 
     <fragment
@@ -13,9 +13,9 @@
         tools:layout="@layout/fragment_offers">
     </fragment>
 
-    <fragment
+    <dialog
         android:id="@+id/searchFragment"
-        android:name="com.example.flightsearch.fragments.SearchFragment"
+        android:name="com.example.flightsearch.fragments.searchfragment.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search"/>
 
