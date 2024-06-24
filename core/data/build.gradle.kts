@@ -19,6 +19,7 @@ android {
 dependencies {
     implementation(project(":core:database"))
     implementation(project(":core:network"))
+    implementation(project(":core:datastore"))
     implementation(libs.kotlinx.coroutines.core)
 
     implementation(libs.koin.core)

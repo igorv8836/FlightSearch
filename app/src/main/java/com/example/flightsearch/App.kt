@@ -4,6 +4,7 @@ import android.app.Application
 import com.example.common.commonModule
 import com.example.data.dataModule
 import com.example.database.databaseModule
+import com.example.datastore.dataStoreModule
 import com.example.domain.domainModule
 import com.example.network.networkModule
 import org.koin.android.ext.koin.androidContext
@@ -21,6 +22,7 @@ class App: Application() {
                 databaseModule,
                 domainModule,
                 networkModule,
+                dataStoreModule,
                 flightSearchModule
             )
         }

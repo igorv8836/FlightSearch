@@ -42,7 +42,16 @@ class OffersFragment : Fragment() {
             }
         }
 
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.lastCity.collect {
+                it?.let { city ->
+                    binding.fromCity.setText(city)
+                }
+            }
+        }
+
         binding.toCity.setOnClickListener {
+            viewModel.saveLastCity(binding.fromCity.text.toString())
             findNavController().navigate(R.id.toSearchFragment)
         }
 
