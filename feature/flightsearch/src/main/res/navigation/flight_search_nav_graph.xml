@@ -3,18 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/flight_search_nav_graph"
-    app:startDestination="@id/offersFragment">
+    app:startDestination="@id/searchFragment">
 
 
     <fragment
         android:id="@+id/offersFragment"
-        android:name="com.example.flightsearch.OffersFragment"
+        android:name="com.example.flightsearch.fragments.OffersFragment"
         android:label="fragment_offers"
         tools:layout="@layout/fragment_offers">
     </fragment>
 
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.flightsearch.fragments.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search"/>
+
     <action
         android:id="@+id/toOffersFragment"
         app:destination="@id/offersFragment" />
+
+    <action
+        android:id="@+id/toSearchFragment"
+        app:destination="@id/searchFragment"/>
 
 </navigation>

@@ -9,7 +9,7 @@ import com.example.data.repositoriesImpl.TicketsOfferRepositoryImpl
 import org.koin.dsl.module
 
 val dataModule = module {
-    single<OfferRepository> { OfferRepositoryImpl(get(), get()) }
-    single<TicketsOfferRepository> { TicketsOfferRepositoryImpl(get(), get()) }
-    single<TicketRepository> { TicketRepositoryImpl(get(), get()) }
+    factory<OfferRepository> { OfferRepositoryImpl(get(), get()) }
+    factory<TicketsOfferRepository> { TicketsOfferRepositoryImpl(get(), get()) }
+    factory<TicketRepository> { TicketRepositoryImpl(get(), get()) }
 }

@@ -7,50 +7,50 @@
 
     <!-- Title 1 -->
     <style name="Title1">
-        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
-        <item name="android:textSize">22sp</item>
+        <item name="android:fontFamily">@string/sf_pro_display_semibold</item>
+        <item name="android:textSize">@dimen/size5</item>
     </style>
 
     <!-- Title 2 -->
     <style name="Title2">
-        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@string/sf_pro_display_semibold</item>
+        <item name="android:textSize">@dimen/size4</item>
     </style>
 
     <!-- Title 3 -->
     <style name="Title3">
-        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@string/sf_pro_display_medium</item>
+        <item name="android:textSize">@dimen/size3</item>
     </style>
 
     <!-- Title 4 -->
     <style name="Title4">
-        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@string/sf_pro_display_regular</item>
+        <item name="android:textSize">@dimen/size2</item>
     </style>
 
     <!-- Text 1 -->
     <style name="Text1">
-        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@string/sf_pro_display_regular</item>
+        <item name="android:textSize">@dimen/size3</item>
     </style>
 
     <!-- Text 2 -->
     <style name="Text2">
-        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@string/sf_pro_display_semibold</item>
+        <item name="android:textSize">@dimen/size2</item>
     </style>
 
     <!-- Button Text 1 -->
     <style name="ButtonText1">
-        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@string/sf_pro_display_regular</item>
+        <item name="android:textSize">@dimen/size3</item>
     </style>
 
     <!-- Tab Text -->
     <style name="TabText">
-        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
-        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">@string/sf_pro_display_medium</item>
+        <item name="android:textSize">@dimen/size1</item>
     </style>
 
 </resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sf_pro_display_regular">sf_pro_display_regular</string>
+    <string name="sf_pro_display_medium">sf_pro_display_medium</string>
+    <string name="sf_pro_display_semibold">sf_pro_display_semibold</string>
+</resources>

@@ -40,7 +40,10 @@ android {
 
 dependencies {
     implementation(project(":core:common"))
+    implementation(project(":core:data"))
+    implementation(project(":core:database"))
     implementation(project(":core:domain"))
+    implementation(project(":core:network"))
     implementation(project(":feature:flightsearch"))
     implementation(project(":feature:hotels"))
     implementation(project(":feature:maps"))

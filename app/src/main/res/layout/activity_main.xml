@@ -14,10 +14,17 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/bottom_nav_menu"
+        android:layout_above="@id/divider"
         app:navGraph="@navigation/bottom_menu_nav_graph"
         app:defaultNavHost="true"
         />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottom_nav_menu"
+        app:dividerColor="@color/grey_1"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav_menu"
@@ -31,6 +38,7 @@
         app:itemTextAppearanceInactive="@style/TabText"
         app:itemTextColor="@color/nav_item_color"
         app:labelVisibilityMode="labeled"
+        android:background="@color/black"
         app:menu="@menu/bottom_navigation_menu">
 
 
