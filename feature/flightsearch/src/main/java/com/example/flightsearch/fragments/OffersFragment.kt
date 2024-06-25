@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -51,8 +52,15 @@ class OffersFragment : Fragment() {
         }
 
         binding.toCity.setOnClickListener {
-            viewModel.saveLastCity(binding.fromCity.text.toString())
-            findNavController().navigate(R.id.toSearchFragment)
+            val fromCity = binding.fromCity.text.toString()
+            if (fromCity.isEmpty()) {
+                Toast.makeText(requireContext(), "Название города не может быть пустым", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            viewModel.saveLastCity(fromCity)
+            val bundle = Bundle()
+            bundle.putString("fromCity", fromCity)
+            findNavController().navigate(R.id.toSearchFragment, bundle)
         }
 
 

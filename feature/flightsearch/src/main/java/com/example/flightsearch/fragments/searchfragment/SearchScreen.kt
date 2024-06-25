@@ -1,5 +1,6 @@
 package com.example.flightsearch.fragments.searchfragment
 
+import android.os.Bundle
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -23,12 +24,17 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.common.R
 import com.example.flightsearch.viewmodels.SearchViewModel
 
 @Composable
-internal fun SearchScreen(viewModel: SearchViewModel) {
+internal fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
     val destinations by viewModel.destinations.collectAsState()
+    val fromCity by viewModel.fromCity.collectAsState()
+    val text = "Куда угодно"
+    val toTextFieldState = remember { mutableStateOf("") }
+    val fromTextFieldState = remember { mutableStateOf(fromCity) }
     Column(
         modifier = Modifier
             .padding(start = 16.dp, end = 16.dp, top = 24.dp)
@@ -41,13 +47,11 @@ internal fun SearchScreen(viewModel: SearchViewModel) {
                 )
             )
         ) {
-            val toTextFieldState = remember { mutableStateOf("") }
-            val fromTextFieldState = remember { mutableStateOf("") }
-            MyTextField(
-                textFieldState = toTextFieldState,
-                iconId = R.drawable.plane,
+            SearchTextField(
+                textFieldState = fromTextFieldState,
+                leadingIconId = R.drawable.plane,
                 hintText = "Откуда - Москва",
-                isEnabledClearButton = false,
+                isEnabled = false,
                 leadingIconTint = R.color.grey_5
             )
             HorizontalDivider(
@@ -55,13 +59,15 @@ internal fun SearchScreen(viewModel: SearchViewModel) {
                 color = colorResource(id = R.color.grey_4),
                 modifier = Modifier.padding(horizontal = 12.dp)
             )
-            MyTextField(
-                textFieldState = fromTextFieldState,
-                iconId = R.drawable.search,
+            SearchTextField(
+                textFieldState = toTextFieldState,
+                leadingIconId = R.drawable.search,
                 hintText = "Куда - Турция",
-                isEnabledClearButton = true,
+                isEnabled = true,
                 leadingIconTint = R.color.white
-            )
+            ){
+                navigateToRouteDetails(fromCity, toTextFieldState.value, navController)
+            }
         }
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -76,15 +82,16 @@ internal fun SearchScreen(viewModel: SearchViewModel) {
                 text = "Сложный\n маршрут",
                 iconBackground = R.color.green
             ) {
-
+                navController.navigate(com.example.flightsearch.R.id.toMockFragment)
             }
             RouteElement(
                 id = 1,
                 iconId = R.drawable.ball,
-                text = "Куда угодно",
+                text = text,
                 iconBackground = R.color.blue
             ) {
-
+                toTextFieldState.value = text
+                navigateToRouteDetails(fromCity, toTextFieldState.value, navController)
             }
             RouteElement(
                 id = 2,
@@ -92,7 +99,7 @@ internal fun SearchScreen(viewModel: SearchViewModel) {
                 text = "Выходные",
                 iconBackground = R.color.dark_blue
             ) {
-
+                navController.navigate(com.example.flightsearch.R.id.toMockFragment)
             }
             RouteElement(
                 id = 3,
@@ -100,7 +107,7 @@ internal fun SearchScreen(viewModel: SearchViewModel) {
                 text = "Горячие\n билеты",
                 iconBackground = R.color.red
             ) {
-
+                navController.navigate(com.example.flightsearch.R.id.toMockFragment)
             }
         }
 
@@ -119,10 +126,20 @@ internal fun SearchScreen(viewModel: SearchViewModel) {
                 modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 16.dp)
             ) {
                 items(destinations) {
-                    DestinationItem(it) {}
+                    DestinationItem(it) {
+                        toTextFieldState.value = it.cityName
+                        navigateToRouteDetails(fromCity, toTextFieldState.value, navController)
+                    }
                     HorizontalDivider(thickness = 1.dp, color = colorResource(id = R.color.grey_4))
                 }
             }
         }
     }
+}
+
+fun navigateToRouteDetails(fromCity: String, toCity: String, navController: NavController){
+    val bundle = Bundle()
+    bundle.putString("fromCity", fromCity)
+    bundle.putString("toCity", toCity)
+    navController.navigate(com.example.flightsearch.R.id.toRouteDetailsFragment, bundle)
 }

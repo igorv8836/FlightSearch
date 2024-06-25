@@ -11,6 +11,8 @@ internal class SearchViewModel : ViewModel() {
     private val _destinations: MutableStateFlow<List<RecommendedDestination>> =
         MutableStateFlow(emptyList())
     val destinations: StateFlow<List<RecommendedDestination>> = _destinations
+    private val _fromCity: MutableStateFlow<String> = MutableStateFlow("")
+    val fromCity: StateFlow<String> = _fromCity
 
     init {
         getDestinations()
@@ -22,5 +24,9 @@ internal class SearchViewModel : ViewModel() {
             RecommendedDestination(R.drawable.recommendation2, "Сочи", "Популярное направление"),
             RecommendedDestination(R.drawable.recommendation3, "Пхукет", "Популярное направление")
         )
+    }
+
+    fun setFromCity(city: String) {
+        _fromCity.value = city
     }
 }

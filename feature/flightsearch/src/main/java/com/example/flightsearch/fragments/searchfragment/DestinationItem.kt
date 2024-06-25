@@ -39,7 +39,7 @@ fun DestinationItem(destination: RecommendedDestination, onClick: () -> Unit) {
             .clickable(
                 onClick = onClick,
                 interactionSource = interactionSource,
-                indication = rememberRipple(color = Color.White)
+                indication = rememberRipple(color = Color.LightGray)
             )
             .padding(top = 16.dp, bottom = 8.dp)
     ) {

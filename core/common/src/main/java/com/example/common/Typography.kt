@@ -3,6 +3,7 @@ package com.example.common
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 
 val SfProDisplayRegular = FontFamily(Font(R.font.sf_pro_display_regular, FontWeight.Normal))
@@ -25,6 +26,7 @@ val Title3 = TextStyle(
 )
 
 val Title4 = TextStyle(
+    fontStyle = FontStyle.Italic,
     fontFamily = SfProDisplayRegular,
     fontSize = Dimens.size2
 )
@@ -40,6 +42,7 @@ val Text2 = TextStyle(
 )
 
 val ButtonText1 = TextStyle(
+    fontStyle = FontStyle.Italic,
     fontFamily = SfProDisplayRegular,
     fontSize = Dimens.size3
 )

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.layout.Column
 import androidx.compose.ui.platform.ComposeView
+import androidx.navigation.fragment.findNavController
 import com.example.flightsearch.viewmodels.SearchViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -18,12 +19,17 @@ class SearchFragment : BottomSheetDialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+        val args = arguments
+        if (args != null) {
+            val fromCity = args.getString("fromCity")
+            viewModel.setFromCity(fromCity ?: "")
+        }
         return ComposeView(requireContext()).apply {
             setContent {
                 Column {
                     TopBar()
-                    SearchScreen(viewModel)
+                    SearchScreen(viewModel, findNavController())
                 }
             }
         }

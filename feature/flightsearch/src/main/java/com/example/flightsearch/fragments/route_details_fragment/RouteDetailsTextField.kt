@@ -1,7 +1,9 @@
-package com.example.flightsearch.fragments.searchfragment
+package com.example.flightsearch.fragments.route_details_fragment
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -13,16 +15,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import com.example.common.ButtonText1
 import com.example.common.R
 
 @Composable
-internal fun MyTextField(
+internal fun RouteDetailsTextField(
     textFieldState: MutableState<String>,
-    iconId: Int,
+    trailingIconId: Int,
     hintText: String,
-    isEnabledClearButton: Boolean,
-    leadingIconTint: Int
+    isEnabled: Boolean,
+    trailingIconTint: Int,
+    onClick: () -> Unit
 ) {
     TextField(
         value = textFieldState.value,
@@ -34,29 +38,20 @@ internal fun MyTextField(
                 style = ButtonText1
             )
         },
-        leadingIcon = {
-            Icon(
-                painter = painterResource(id = iconId),
-                contentDescription = null,
-                tint = colorResource(
-                    id = leadingIconTint
-                )
-            )
-        },
         trailingIcon = {
-            if (isEnabledClearButton)
-                IconButton(onClick = { textFieldState.value = "" }) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.close),
-                        contentDescription = null,
-                        tint = colorResource(id = R.color.grey_6)
-                    )
-                }
+            IconButton(onClick = onClick) {
+                Icon(
+                    painter = painterResource(id = trailingIconId),
+                    contentDescription = null,
+                    tint = colorResource(id = trailingIconTint)
+                )
+            }
         },
+        readOnly = !isEnabled,
         textStyle = ButtonText1.copy(color = colorResource(id = R.color.white)),
         modifier = Modifier
             .background(Color.Transparent)
-            .fillMaxWidth(),
+            .fillMaxWidth().height(54.dp),
         colors = TextFieldDefaults.colors()
             .copy(
                 unfocusedContainerColor = Color.Transparent,

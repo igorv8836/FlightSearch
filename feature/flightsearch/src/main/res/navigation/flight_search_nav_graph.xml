@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/flight_search_nav_graph"
-    app:startDestination="@id/offersFragment">
+    app:startDestination="@id/routeDetailsFragments">
 
 
     <fragment
@@ -19,6 +19,24 @@
         android:label="fragment_search"
         tools:layout="@layout/fragment_search"/>
 
+    <fragment
+        android:id="@+id/mockFragment"
+        android:name="com.example.flightsearch.fragments.mock_fragments.MockFragment"/>
+
+    <fragment
+        android:id="@+id/routeDetailsFragments"
+        android:name="com.example.flightsearch.fragments.route_details_fragment.RouteDetailsFragment"
+        android:label="fragment_route_details"
+        tools:layout="@layout/fragment_route_details">
+    </fragment>
+
+    <fragment
+        android:id="@+id/ticketsFragment"
+        android:name="com.example.flightsearch.fragments.tickets_fragment.TicketsFragment"
+        android:label="fragment_tickets_fragment"
+        tools:layout="@layout/fragment_tickets">
+    </fragment>
+
     <action
         android:id="@+id/toOffersFragment"
         app:destination="@id/offersFragment" />
@@ -26,5 +44,17 @@
     <action
         android:id="@+id/toSearchFragment"
         app:destination="@id/searchFragment"/>
+
+    <action
+        android:id="@+id/toMockFragment"
+        app:destination="@id/mockFragment"/>
+
+    <action
+        android:id="@+id/toRouteDetailsFragment"
+        app:destination="@id/routeDetailsFragments"/>
+
+    <action
+        android:id="@+id/toTicketsFragment"
+        app:destination="@id/ticketsFragment"/>
 
 </navigation>
