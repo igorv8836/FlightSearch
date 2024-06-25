@@ -1,4 +1,4 @@
-package com.example.flightsearch.fragments.searchfragment
+package com.example.flightsearch.fragments.searchfragment.ui_elements
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -26,7 +26,7 @@ import com.example.common.R
 import com.example.common.Text2
 
 @Composable
-fun RouteElement(
+internal fun RouteElement(
     id: Int,
     iconId: Int,
     text: String,

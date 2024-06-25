@@ -7,13 +7,14 @@ import android.view.ViewGroup
 import androidx.compose.foundation.layout.Column
 import androidx.compose.ui.platform.ComposeView
 import androidx.navigation.fragment.findNavController
+import com.example.flightsearch.fragments.searchfragment.ui_elements.TopBar
 import com.example.flightsearch.viewmodels.SearchViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class SearchFragment : BottomSheetDialogFragment() {
+internal class SearchFragment : BottomSheetDialogFragment() {
     private val viewModel: SearchViewModel by viewModel()
 
     override fun onCreateView(

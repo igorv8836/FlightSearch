@@ -1,4 +1,4 @@
-package com.example.flightsearch.fragments.route_details_fragment
+package com.example.flightsearch.fragments.route_details_fragment.ui_elements
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -27,7 +27,7 @@ import com.example.flightsearch.utils.divideIntoThreeDigits
 import com.example.flightsearch.utils.timeRangeToString
 
 @Composable
-fun TicketsOffer(ticketsOffer: TicketsOffer, color: Int) {
+internal fun TicketsOffer(ticketsOffer: TicketsOffer, color: Int) {
     Row(
         modifier = Modifier
             .padding(top = 16.dp, bottom = 8.dp)

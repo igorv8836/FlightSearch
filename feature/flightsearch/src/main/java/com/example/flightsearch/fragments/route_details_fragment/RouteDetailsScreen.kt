@@ -1,7 +1,9 @@
 package com.example.flightsearch.fragments.route_details_fragment
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -14,6 +16,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.HorizontalDivider
@@ -24,7 +27,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -33,9 +35,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.common.ButtonText1
-import com.example.common.Text1
 import com.example.common.Title2
 import com.example.flightsearch.R
+import com.example.flightsearch.fragments.route_details_fragment.ui_elements.FilterElement
+import com.example.flightsearch.fragments.route_details_fragment.ui_elements.RouteDetailsTextField
+import com.example.flightsearch.fragments.route_details_fragment.ui_elements.SubscribeElement
+import com.example.flightsearch.fragments.route_details_fragment.ui_elements.TicketsOffer
+import com.example.flightsearch.fragments.route_details_fragment.ui_elements.showDatePickerDialog
 import com.example.flightsearch.utils.getDayFromMillis
 import com.example.flightsearch.utils.getMonthFromMillis
 import com.example.flightsearch.utils.getWeekDayFromMillis
@@ -43,13 +49,14 @@ import com.example.flightsearch.viewmodels.RouteDetailsViewModel
 import kotlin.math.min
 
 @Composable
-fun RouteDetailsScreen(viewModel: RouteDetailsViewModel, navController: NavController) {
+internal fun RouteDetailsScreen(viewModel: RouteDetailsViewModel, navController: NavController) {
     val context = LocalContext.current
+    val interactionSource = remember { MutableInteractionSource() }
     val ticketFilter by viewModel.ticketFilter.collectAsState()
     val ticketsOffer by viewModel.ticketsOffer.collectAsState()
     val toTextFieldState = remember(ticketFilter) { mutableStateOf(ticketFilter.toCity) }
     val fromTextFieldState = remember(ticketFilter) { mutableStateOf(ticketFilter.fromCity) }
-    var priceSubscription = remember { mutableStateOf(false) }
+    val priceSubscription = remember { mutableStateOf(false) }
     val colors = listOf(
         com.example.common.R.color.red,
         com.example.common.R.color.blue,
@@ -57,7 +64,7 @@ fun RouteDetailsScreen(viewModel: RouteDetailsViewModel, navController: NavContr
     )
     val scrollState = rememberScrollState()
     Column(
-        modifier = Modifier.padding(top = 48.dp)
+        modifier = Modifier.padding(top = 48.dp).background(colorResource(id = com.example.common.R.color.black))
     ) {
         Row(
             modifier = Modifier
@@ -75,6 +82,11 @@ fun RouteDetailsScreen(viewModel: RouteDetailsViewModel, navController: NavContr
                 modifier = Modifier
                     .align(Alignment.CenterVertically)
                     .padding(start = 8.dp)
+                    .clickable(
+                        onClick = { navController.popBackStack() },
+                        interactionSource = interactionSource,
+                        indication = rememberRipple(bounded = false, radius = 24.dp)
+                    )
             )
             Column {
                 RouteDetailsTextField(

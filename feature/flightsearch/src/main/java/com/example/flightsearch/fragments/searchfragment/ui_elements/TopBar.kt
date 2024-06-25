@@ -1,4 +1,4 @@
-package com.example.flightsearch.fragments.searchfragment
+package com.example.flightsearch.fragments.searchfragment.ui_elements
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import com.example.common.R
 
 @Composable
-fun TopBar() {
+internal fun TopBar() {
     Box(
         contentAlignment = Alignment.TopCenter,
         modifier = Modifier

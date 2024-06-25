@@ -1,4 +1,4 @@
-package com.example.flightsearch.fragments.route_details_fragment
+package com.example.flightsearch.fragments.route_details_fragment.ui_elements
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import com.example.common.Title4
 
 @Composable
-fun FilterElement(
+internal fun FilterElement(
     leadingIconId: Int? = null,
     leadingIconTint: Int? = null,
     text: String,

@@ -8,14 +8,14 @@ import java.util.Date
 import java.util.Locale
 import kotlin.math.abs
 
-fun Long.getDayFromMillis(): Int{
+internal fun Long.getDayFromMillis(): Int{
     val calendar = Calendar.getInstance()
     calendar.timeInMillis = this
 
     return calendar.get(Calendar.DAY_OF_MONTH)
 }
 
-fun Long.getMonthFromMillis(): String{
+internal fun Long.getMonthFromMillis(): String{
     val calendar = Calendar.getInstance()
     calendar.timeInMillis = this
 
@@ -23,7 +23,15 @@ fun Long.getMonthFromMillis(): String{
     return month?.lowercase(Locale("ru"))?.dropLast(1) ?: ""
 }
 
-fun Long.getWeekDayFromMillis(): String{
+internal fun Long.getFullMonthFromMillis(): String{
+    val calendar = Calendar.getInstance()
+    calendar.timeInMillis = this
+
+    val month = calendar.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale("ru"))
+    return month?.lowercase(Locale("ru")) ?: ""
+}
+
+internal fun Long.getWeekDayFromMillis(): String{
     val calendar = Calendar.getInstance()
     calendar.timeInMillis = this
 
@@ -31,14 +39,14 @@ fun Long.getWeekDayFromMillis(): String{
     return dayOfWeek?.lowercase(Locale("ru")) ?: ""
 }
 
-fun Ticket.getDepartureTime(): String {
+internal fun Ticket.getDepartureTime(): String {
     val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
     val outputDateFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
     val date: Date? = dateFormat.parse(departure.date)
     return date?.let { outputDateFormat.format(it) } ?: ""
 }
 
-fun Ticket.getArrivalTime(): String {
+internal fun Ticket.getArrivalTime(): String {
     val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
     val outputDateFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
     val date: Date? = dateFormat.parse(arrival.date)
@@ -46,7 +54,7 @@ fun Ticket.getArrivalTime(): String {
 }
 
 @SuppressLint("DefaultLocale")
-fun Ticket.getDuration(): String {
+internal fun Ticket.getDuration(): String {
     val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
     val departureDate: Date? = dateFormat.parse(departure.date)
     val arrivalDate: Date? = dateFormat.parse(arrival.date)

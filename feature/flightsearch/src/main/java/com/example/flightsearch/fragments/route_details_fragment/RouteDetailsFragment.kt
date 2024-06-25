@@ -1,26 +1,17 @@
 package com.example.flightsearch.fragments.route_details_fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Text
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
-import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.text.style.TextAlign
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.common.Title1
-import com.example.flightsearch.viewmodels.OffersViewModel
 import com.example.flightsearch.viewmodels.RouteDetailsViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 
-class RouteDetailsFragment : Fragment() {
-    private val viewModel: RouteDetailsViewModel by viewModel()
+internal class RouteDetailsFragment : Fragment() {
+    private val viewModel: RouteDetailsViewModel by activityViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

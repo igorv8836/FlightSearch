@@ -1,11 +1,11 @@
-package com.example.flightsearch.fragments.route_details_fragment
+package com.example.flightsearch.fragments.route_details_fragment.ui_elements
 
 import android.app.DatePickerDialog
 import android.content.Context
 import android.widget.DatePicker
 import java.util.Calendar
 
-fun showDatePickerDialog(context: Context, onDateSelected: (Long) -> Unit) {
+internal fun showDatePickerDialog(context: Context, onDateSelected: (Long) -> Unit) {
     val calendar = Calendar.getInstance()
     val year = calendar.get(Calendar.YEAR)
     val month = calendar.get(Calendar.MONTH)

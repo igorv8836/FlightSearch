@@ -17,7 +17,7 @@ import com.example.flightsearch.viewmodels.OffersViewModel
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class OffersFragment : Fragment() {
+internal class OffersFragment : Fragment() {
     private lateinit var binding: FragmentOffersBinding
     private val viewModel: OffersViewModel by viewModel()
 

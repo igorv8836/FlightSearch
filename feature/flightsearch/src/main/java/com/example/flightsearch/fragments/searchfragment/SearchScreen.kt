@@ -26,6 +26,9 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.common.R
+import com.example.flightsearch.fragments.searchfragment.ui_elements.DestinationItem
+import com.example.flightsearch.fragments.searchfragment.ui_elements.RouteElement
+import com.example.flightsearch.fragments.searchfragment.ui_elements.SearchTextField
 import com.example.flightsearch.viewmodels.SearchViewModel
 
 @Composable
@@ -42,7 +45,7 @@ internal fun SearchScreen(viewModel: SearchViewModel, navController: NavControll
     ) {
         Column(
             modifier = Modifier.background(
-                colorResource(id = R.color.grey_3), shape = CircleShape.copy(
+                colorResource(id = R.color.grey_2), shape = CircleShape.copy(
                     CornerSize(12.dp)
                 )
             )

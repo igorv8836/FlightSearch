@@ -1,4 +1,4 @@
-package com.example.flightsearch.fragments.tickets_fragment
+package com.example.flightsearch.fragments.tickets_fragment.ui_elements
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -15,7 +15,7 @@ import com.example.common.R
 import com.example.common.Title4
 
 @Composable
-fun TicketIndicator(text: String) {
+internal fun TicketIndicator(text: String) {
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier

@@ -1,10 +1,8 @@
-package com.example.flightsearch.fragments.searchfragment
+package com.example.flightsearch.fragments.route_details_fragment.ui_elements
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.text.KeyboardActionScope
-import androidx.compose.foundation.text.KeyboardActions
-import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -16,18 +14,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.unit.dp
 import com.example.common.ButtonText1
 import com.example.common.R
 
 @Composable
-internal fun SearchTextField(
+internal fun RouteDetailsTextField(
     textFieldState: MutableState<String>,
-    leadingIconId: Int,
+    trailingIconId: Int,
     hintText: String,
     isEnabled: Boolean,
-    leadingIconTint: Int,
-    onDone: (KeyboardActionScope.() -> Unit)? = {}
+    trailingIconTint: Int,
+    onClick: () -> Unit
 ) {
     TextField(
         value = textFieldState.value,
@@ -39,35 +37,20 @@ internal fun SearchTextField(
                 style = ButtonText1
             )
         },
-        leadingIcon = {
-            Icon(
-                painter = painterResource(id = leadingIconId),
-                contentDescription = null,
-                tint = colorResource(
-                    id = leadingIconTint
-                )
-            )
-        },
         trailingIcon = {
-            if (isEnabled)
-                IconButton(onClick = { textFieldState.value = "" }) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.close),
-                        contentDescription = null,
-                        tint = colorResource(id = R.color.grey_6)
-                    )
-                }
+            IconButton(onClick = onClick) {
+                Icon(
+                    painter = painterResource(id = trailingIconId),
+                    contentDescription = null,
+                    tint = colorResource(id = trailingIconTint)
+                )
+            }
         },
-        keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done),
-        keyboardActions = KeyboardActions(onDone = {
-            if (textFieldState.value.isNotEmpty())
-                onDone?.let { it() }
-        }),
         readOnly = !isEnabled,
         textStyle = ButtonText1.copy(color = colorResource(id = R.color.white)),
         modifier = Modifier
             .background(Color.Transparent)
-            .fillMaxWidth(),
+            .fillMaxWidth().height(54.dp),
         colors = TextFieldDefaults.colors()
             .copy(
                 unfocusedContainerColor = Color.Transparent,

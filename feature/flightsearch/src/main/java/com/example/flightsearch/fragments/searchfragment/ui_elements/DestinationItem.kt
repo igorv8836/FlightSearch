@@ -1,4 +1,4 @@
-package com.example.flightsearch.fragments.searchfragment
+package com.example.flightsearch.fragments.searchfragment.ui_elements
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -30,7 +30,7 @@ import com.example.common.Title3
 import com.example.flightsearch.models.RecommendedDestination
 
 @Composable
-fun DestinationItem(destination: RecommendedDestination, onClick: () -> Unit) {
+internal fun DestinationItem(destination: RecommendedDestination, onClick: () -> Unit) {
     val interactionSource = remember { MutableInteractionSource() }
     Row(
         verticalAlignment = Alignment.CenterVertically,

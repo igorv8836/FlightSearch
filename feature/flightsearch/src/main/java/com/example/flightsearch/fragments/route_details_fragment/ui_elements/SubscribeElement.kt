@@ -1,4 +1,4 @@
-package com.example.flightsearch.fragments.route_details_fragment
+package com.example.flightsearch.fragments.route_details_fragment.ui_elements
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.example.common.Text1
 
 @Composable
-fun SubscribeElement(priceSubscription: MutableState<Boolean>) {
+internal fun SubscribeElement(priceSubscription: MutableState<Boolean>) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier

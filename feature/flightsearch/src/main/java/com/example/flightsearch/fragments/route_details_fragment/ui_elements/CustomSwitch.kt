@@ -1,4 +1,4 @@
-package com.example.flightsearch.fragments.route_details_fragment
+package com.example.flightsearch.fragments.route_details_fragment.ui_elements
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
@@ -22,7 +22,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun CustomSwitch(
+internal fun CustomSwitch(
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit
 ) {

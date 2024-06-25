@@ -1,9 +1,10 @@
-package com.example.flightsearch.fragments.route_details_fragment
+package com.example.flightsearch.fragments.searchfragment.ui_elements
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.text.KeyboardActionScope
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -15,18 +16,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.text.input.ImeAction
 import com.example.common.ButtonText1
 import com.example.common.R
 
 @Composable
-internal fun RouteDetailsTextField(
+internal fun SearchTextField(
     textFieldState: MutableState<String>,
-    trailingIconId: Int,
+    leadingIconId: Int,
     hintText: String,
     isEnabled: Boolean,
-    trailingIconTint: Int,
-    onClick: () -> Unit
+    leadingIconTint: Int,
+    onDone: (KeyboardActionScope.() -> Unit)? = {}
 ) {
     TextField(
         value = textFieldState.value,
@@ -38,20 +39,35 @@ internal fun RouteDetailsTextField(
                 style = ButtonText1
             )
         },
-        trailingIcon = {
-            IconButton(onClick = onClick) {
-                Icon(
-                    painter = painterResource(id = trailingIconId),
-                    contentDescription = null,
-                    tint = colorResource(id = trailingIconTint)
+        leadingIcon = {
+            Icon(
+                painter = painterResource(id = leadingIconId),
+                contentDescription = null,
+                tint = colorResource(
+                    id = leadingIconTint
                 )
-            }
+            )
         },
+        trailingIcon = {
+            if (isEnabled)
+                IconButton(onClick = { textFieldState.value = "" }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.close),
+                        contentDescription = null,
+                        tint = colorResource(id = R.color.grey_6)
+                    )
+                }
+        },
+        keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done),
+        keyboardActions = KeyboardActions(onDone = {
+            if (textFieldState.value.isNotEmpty())
+                onDone?.let { it() }
+        }),
         readOnly = !isEnabled,
         textStyle = ButtonText1.copy(color = colorResource(id = R.color.white)),
         modifier = Modifier
             .background(Color.Transparent)
-            .fillMaxWidth().height(54.dp),
+            .fillMaxWidth(),
         colors = TextFieldDefaults.colors()
             .copy(
                 unfocusedContainerColor = Color.Transparent,
