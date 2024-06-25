@@ -23,7 +23,7 @@ class App: Application() {
                 domainModule,
                 networkModule,
                 dataStoreModule,
-                flightSearchModule
+                ticketSearchModule
             )
         }
 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/profileBlankFragment"
+    android:id="@+id/profile_nav_graph">
+
+
+    <fragment
+        android:id="@+id/profileBlankFragment"
+        android:name="com.example.profile.BlankFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_blank" />
+
+</navigation>

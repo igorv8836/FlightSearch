@@ -23,7 +23,7 @@ rootProject.name = "Flight Search"
 include(":app")
 include(":core:database")
 include(":core:network")
-include(":feature:flightsearch")
+include(":feature:ticketsearch")
 include(":feature:hotels")
 include(":feature:maps")
 include(":feature:subscriptions")

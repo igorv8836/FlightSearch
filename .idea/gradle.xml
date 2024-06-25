@@ -18,11 +18,11 @@
             <option value="$PROJECT_DIR$/core/domain" />
             <option value="$PROJECT_DIR$/core/network" />
             <option value="$PROJECT_DIR$/feature" />
-            <option value="$PROJECT_DIR$/feature/flightsearch" />
             <option value="$PROJECT_DIR$/feature/hotels" />
             <option value="$PROJECT_DIR$/feature/maps" />
             <option value="$PROJECT_DIR$/feature/profile" />
             <option value="$PROJECT_DIR$/feature/subscriptions" />
+            <option value="$PROJECT_DIR$/feature/ticketsearch" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
