@@ -8,6 +8,12 @@ import com.example.database.entities.ticketEntities.LuggageEntity
 import com.example.network.tickets_models.Arrival
 import com.example.network.tickets_models.Departure
 import com.example.network.tickets_models.TicketDTO
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+import java.util.Date
+import java.util.Locale
 
 data class Ticket(
     val id: Int,
